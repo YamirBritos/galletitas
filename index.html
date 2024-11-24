@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devolución de Paquetes y Guía de Camiones</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Formulario de Devolución de Paquete</h2>
+        <form action="php/procesar_devolucion.php" method="POST" enctype="multipart/form-data">
+            <label for="numeroSeguimiento">Número de Seguimiento:</label>
+            <input type="text" id="numeroSeguimiento" name="numeroSeguimiento" required>
+
+            <label for="quienAbrio">¿Quién abrió el paquete?</label>
+            <select id="quienAbrio" name="quienAbrio" required>
+                <option value="cliente">Cliente</option>
+                <option value="trabajador">Trabajador</option>
+                <option value="camionero">Camionero</option>
+            </select>
+
+            <label for="descripcion">Descripción de los daños:</label>
+            <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+
+            <label for="imagen">Imagen del paquete roto:</label>
+            <input type="file" id="imagen" name="imagen">
+
+            <button type="submit">Registrar Devolución</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Formulario de Registro de Guía de Camión</h2>
+        <form action="php/procesar_guia.php" method="POST">
+            <label for="camionID">Número de identificación del camión:</label>
+            <input type="text" id="camionID" name="camionID" required>
+
+            <label for="ruta">Ruta de destino:</label>
+            <input type="text" id="ruta" name="ruta" required>
+
+            <label for="horaSalida">Hora de salida:</label>
+            <input type="datetime-local" id="horaSalida" name="horaSalida" required>
+
+            <label for="confirmacionLlegada">¿Llegó el camión?</label>
+            <input type="checkbox" id="confirmacionLlegada" name="confirmacionLlegada">
+
+            <label for="transaccionPago">Número de transacción de pago:</label>
+            <input type="text" id="transaccionPago" name="transaccionPago" required>
+
+            <button type="submit">Registrar Llegada</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Verificación de Pago</h2>
+        <form id="verificacionPagoForm">
+            <label for="transaccionID">Número de Transacción:</label>
+            <input type="text" id="transaccionID" name="transaccionID" required>
+
+            <button type="submit">Verificar Transacción</button>
+        </form>
+        <p id="resultado"></p>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
